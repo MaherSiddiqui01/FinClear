@@ -1,0 +1,5 @@
+invoice_id,client_name,email,amount,due_date,status
+INV1001,ABC Pvt Ltd,abc@gmail.com,50000,2026-04-01,Pending
+INV1002,XYZ Ltd,xyz@gmail.com,120000,2026-03-15,Pending
+INV1003,PQR Corp,pqr@gmail.com,75000,2026-05-01,Paid
+INV1004,Delta Inc,delta@gmail.com,90000,2026-02-10,Pending
