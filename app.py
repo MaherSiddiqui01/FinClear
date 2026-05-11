@@ -8,20 +8,13 @@ from agent.email_agent import generate_email
 from agent.risk_agent import risk_score
 from utils.db import save_log
 
-
-# ---------------------------------------------------
-# PAGE CONFIG
-# ---------------------------------------------------
 st.set_page_config(
-    page_title="CollectIQ AI",
+    page_title="FinClear",
     page_icon="💸",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# ---------------------------------------------------
-# UI
-# ---------------------------------------------------
 st.markdown("""
 <style>
 
@@ -117,18 +110,14 @@ section[data-testid="stSidebar"]{
 
 </style>
 
-<div class="main-title">💸 CollectIQ AI</div>
+<div class="main-title">FinClear</div>
 <div class="sub-title">Smart Finance Recovery Dashboard with AI Automation</div>
 
 """, unsafe_allow_html=True)
 
-
-# ---------------------------------------------------
-# SIDEBAR
-# ---------------------------------------------------
 st.sidebar.markdown(
 """
-<h2 style='color:#16a34a;font-weight:800;'>📌 Navigation</h2>
+<h2 style='color:#16a34a;font-weight:800;'>Navigation</h2>
 """,
 unsafe_allow_html=True
 )
@@ -136,12 +125,8 @@ unsafe_allow_html=True
 st.sidebar.info("Upload invoice CSV file")
 st.sidebar.success("AI System Active")
 
-
-# ---------------------------------------------------
-# FILE UPLOAD
-# ---------------------------------------------------
 st.markdown(
-'<div class="block-title">📤 Upload Invoice CSV</div>',
+'<div class="block-title">Upload Invoice CSV</div>',
 unsafe_allow_html=True
 )
 
@@ -150,10 +135,6 @@ file = st.file_uploader(
     type=["csv"]
 )
 
-
-# ---------------------------------------------------
-# MAIN APP
-# ---------------------------------------------------
 if file:
 
     df = pd.read_csv(file)
@@ -184,11 +165,8 @@ if file:
     else:
         paid_count = 0
 
-    # ---------------------------------------------------
-    # KPI
-    # ---------------------------------------------------
     st.markdown(
-    '<div class="block-title">📊 Dashboard Overview</div>',
+    '<div class="block-title">Dashboard Overview</div>',
     unsafe_allow_html=True
     )
 
@@ -226,11 +204,8 @@ if file:
         </div>
         """, unsafe_allow_html=True)
 
-    # ---------------------------------------------------
-    # CHART
-    # ---------------------------------------------------
     st.markdown(
-    '<div class="block-title">📈 Risk Analytics</div>',
+    '<div class="block-title">Risk Analytics</div>',
     unsafe_allow_html=True
     )
 
@@ -254,11 +229,8 @@ if file:
         use_container_width=True
     )
 
-    # ---------------------------------------------------
-    # TABLE
-    # ---------------------------------------------------
     st.markdown(
-    '<div class="block-title">⚡ Priority Recovery List</div>',
+    '<div class="block-title">Priority Recovery List</div>',
     unsafe_allow_html=True
     )
 
@@ -272,11 +244,8 @@ if file:
         use_container_width=True
     )
 
-    # ---------------------------------------------------
-    # EMAIL
-    # ---------------------------------------------------
     st.markdown(
-    '<div class="block-title">📧 AI Payment Reminder</div>',
+    '<div class="block-title">AI Payment Reminder</div>',
     unsafe_allow_html=True
     )
 
@@ -309,7 +278,6 @@ if file:
         unsafe_allow_html=True
         )
 
-        # SEND EMAIL
         try:
             send_email(
                 row["email"],
